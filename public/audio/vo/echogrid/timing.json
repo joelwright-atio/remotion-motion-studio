@@ -1,0 +1,70 @@
+{
+  "overlap": 0.6,
+  "total": 36.946,
+  "scenes": {
+    "hook": {
+      "duration": 4.282,
+      "vo": {
+        "file": "audio/vo/echogrid/00-hook.wav",
+        "lead": 0.6,
+        "length": 2.732
+      }
+    },
+    "head": {
+      "duration": 6.6,
+      "vo": {
+        "file": "audio/vo/echogrid/01-head.wav",
+        "lead": 0.3,
+        "length": 4.276
+      }
+    },
+    "wiki": {
+      "duration": 6.06,
+      "vo": {
+        "file": "audio/vo/echogrid/02-wiki.wav",
+        "lead": 0.3,
+        "length": 4.81
+      }
+    },
+    "turn": {
+      "duration": 3.2,
+      "vo": {
+        "file": "audio/vo/echogrid/03-turn.wav",
+        "lead": 0.25,
+        "length": 1.861
+      }
+    },
+    "chat": {
+      "duration": 7.221,
+      "vo": {
+        "file": "audio/vo/echogrid/04-chat.wav",
+        "lead": 0.3,
+        "length": 5.971
+      }
+    },
+    "graph": {
+      "duration": 5.132,
+      "vo": {
+        "file": "audio/vo/echogrid/05-graph.wav",
+        "lead": 0.3,
+        "length": 3.882
+      }
+    },
+    "trust": {
+      "duration": 4.6,
+      "vo": {
+        "file": "audio/vo/echogrid/06-trust.wav",
+        "lead": 0.3,
+        "length": 3.197
+      }
+    },
+    "cta": {
+      "duration": 4.051,
+      "vo": {
+        "file": "audio/vo/echogrid/07-cta.wav",
+        "lead": 0.4,
+        "length": 3.301
+      }
+    }
+  }
+}

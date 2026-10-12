@@ -1,0 +1,32 @@
+{
+  "name": "remotion-motion-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Programmatic motion graphics with Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "studio": "remotion studio",
+    "render": "remotion render Showcase out/showcase.mp4",
+    "still": "remotion still Showcase out/showcase.png --frame=60",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/shapes": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "@remotion/zod-types": "4.0.534",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.534",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.534",
+    "@types/react": "19.2.2",
+    "eslint": "9.38.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  }
+}

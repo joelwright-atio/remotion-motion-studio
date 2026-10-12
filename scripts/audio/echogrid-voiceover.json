@@ -1,0 +1,60 @@
+{
+  "_comment": "German VO for EchoGridReel, phrased after Tim Knab's talk. 'say' is spoken text (spelled for TTS), 'lead' = seconds into the scene before the VO starts, 'min' = minimum scene length. Run scripts/audio/vo.py after editing. Words in [[...]] are Piper phonemes (see scripts/audio/phonemes.py).",
+  "piperVoice": "de_DE-thorsten-high",
+  "piperLengthScale": 0.9,
+  "voice": "de-DE-ConradNeural",
+  "rate": "+6%",
+  "overlap": 0.6,
+  "tail": 0.35,
+  "preroll": 0.12,
+  "scenes": [
+    {
+      "key": "hook",
+      "lead": 0.6,
+      "min": 2.6,
+      "say": "Geht Ihr [[nˈoʊhˌaʊ]] mit Ihren [[bˈeɪbibˌuːmɐn]] in Rente?"
+    },
+    {
+      "key": "head",
+      "lead": 0.3,
+      "min": 6,
+      "say": "Das meiste Wissen steckt nur in den Köpfen Ihrer Mitarbeiter. Und geht, wenn sie gehen."
+    },
+    {
+      "key": "wiki",
+      "lead": 0.3,
+      "min": 3.6,
+      "say": "Wikis helfen nur, wenn jemand dokumentiert. Und ganz ehrlich: Das macht kaum jemand gern."
+    },
+    {
+      "key": "turn",
+      "lead": 0.25,
+      "min": 2.6,
+      "say": "Was, wenn man einfach erzählt?"
+    },
+    {
+      "key": "chat",
+      "lead": 0.3,
+      "min": 5,
+      "say": "Mit EchoGrid erzählt man einfach. Die KI hört zu, fragt gezielt nach und strukturiert automatisch."
+    },
+    {
+      "key": "graph",
+      "lead": 0.3,
+      "min": 4,
+      "say": "Wissen läuft hinein, wird im Grid vernetzt und kommt als Echo wieder raus."
+    },
+    {
+      "key": "trust",
+      "lead": 0.3,
+      "min": 4,
+      "say": "Die Antworten kommen nur aus Ihrem Wissen. Immer mit Quelle."
+    },
+    {
+      "key": "cta",
+      "lead": 0.4,
+      "min": 4,
+      "say": "EchoGrid von Atio. Wissen festhalten, bevor es geht."
+    }
+  ]
+}
