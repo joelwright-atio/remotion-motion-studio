@@ -9,7 +9,12 @@
     "render": "remotion render Showcase out/showcase.mp4",
     "still": "remotion still Showcase out/showcase.png --frame=60",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "setup:audio": "node scripts/setup-audio.mjs",
+    "audio:vo": "node scripts/py.mjs scripts/audio/vo.py scripts/audio/echogrid-voiceover.json",
+    "audio:sfx": "node scripts/py.mjs scripts/audio/synth.py sfx",
+    "audio:music": "node scripts/py.mjs scripts/audio/synth.py music --timing public/audio/vo/echogrid/timing.json",
+    "audio": "npm run audio:vo && npm run audio:sfx && npm run audio:music"
   },
   "dependencies": {
     "@remotion/cli": "4.0.534",

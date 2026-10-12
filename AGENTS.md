@@ -88,7 +88,7 @@ out/                      render output (git-ignored)
 
 ## Generated audio (Python, `.venv`)
 
-- Setup (once): `py -m venv .venv`, then `.venv/Scripts/python -m pip install numpy piper-tts edge-tts`. The Piper voice model goes in `.venv/piper-voices/` (`de_DE-thorsten-high.onnx` + `.onnx.json` from huggingface.co/rhasspy/piper-voices).
+- Setup (once): `npm run setup:audio`. It checks for Python 3.10+, creates `.venv`, installs `requirements-audio.txt` and downloads the Piper voice. Then use `npm run audio` (or `audio:vo`, `audio:sfx`, `audio:music`).
 - **Sound effects** (whoosh, pop, pop-high, typing, riser, impact, chime): `.venv/Scripts/python scripts/audio/synth.py sfx` writes them to `public/audio/sfx/`.
 - **Music bed** (a minor section, then a lift into a major groove at `--turn`): `.venv/Scripts/python scripts/audio/synth.py music --length <s> --turn <s> --bpm 100` writes `public/audio/music/bed.wav`.
 - **Voiceover:** edit `scripts/audio/<name>-voiceover.json`, then run `.venv/Scripts/python scripts/audio/vo.py scripts/audio/<name>-voiceover.json`. This writes one WAV per scene and a `timing.json`. The scene lengths in `EchoGridReel` come from that `timing.json`, so after changing the VO, re-run the music command with `--timing`. Each VO clip gets `preroll` seconds of leading silence, and the first scene uses a larger `lead` so players do not clip the first word.

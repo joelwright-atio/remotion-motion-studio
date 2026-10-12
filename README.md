@@ -82,6 +82,41 @@ You can also export from inside the Studio: click **Render** (bottom right).
 
 ---
 
+## Changing the voiceover, music or sound effects (optional)
+
+The finished audio is already included, so **you can skip this section** if you only want to watch, edit texts or export videos. You need it only to change the spoken text or regenerate the music and sound effects. The tools for that run on **Python**.
+
+### One-time setup
+
+In the terminal (Step 3), run:
+
+```
+npm run setup:audio
+```
+
+This checks whether Python is installed and sets up everything else automatically, including downloading a voice of about 115 MB. It takes about 2–5 minutes the first time. You can safely run it again; finished steps are skipped and interrupted downloads resume.
+
+**If it says "Python is not installed":**
+1. Go to **https://www.python.org/downloads/** and click **Download Python 3.x**.
+2. Run the installer. On the first screen, **tick "Add python.exe to PATH"** (important!), then click **Install Now**.
+3. Close the terminal, open a new one in the project folder (Step 3), and run `npm run setup:audio` again.
+
+### Regenerating the audio
+
+1. **Change the spoken text:** open `scripts/audio/echogrid-voiceover.json` in a text editor (e.g. Notepad) and edit the lines after `"say":`. Keep the quotation marks and commas.
+2. Run:
+   ```
+   npm run audio
+   ```
+   This creates the new voiceover, sound effects and matching background music. The video length adjusts to the new text automatically.
+3. Check the result in the Studio (`npm run dev`), then export the MP4 as usual.
+
+You can also run single steps: `npm run audio:vo` (voice), then `npm run audio:music` (music must follow the voice), or `npm run audio:sfx` (sound effects).
+
+**Fixing a word the voice pronounces wrongly:** the easiest fix is rewording the sentence. Alternatively, ask the AI assistant (below) to "fix the pronunciation of *word*". It can write the word phonetically.
+
+---
+
 ## Working with the AI assistant (optional)
 
 The project includes instructions and "skills" for **Claude Code**, so you can request changes in plain language. For example: *"Make the hook text bigger"*, *"Create a new Reel about our product X"*, *"Turn this webinar recording into a 30-second Reel"*.
@@ -101,6 +136,9 @@ The project includes instructions and "skills" for **Claude Code**, so you can r
 | Studio doesn't open | Open http://localhost:3000 in your browser yourself. |
 | "Port 3000 is already in use" | The Studio is already running in another terminal. Use that one, or close it with **Ctrl + C**. |
 | No sound in the preview | Click into the preview once, then press Play. Browsers block sound until you click. |
+| "Python is not installed" | Install Python with "Add python.exe to PATH" ticked, then open a **new** terminal (see the audio section above). |
+| "The Python audio tools are not set up yet" | Run `npm run setup:audio` first. |
+| Voice download keeps stopping | Run `npm run setup:audio` again. It continues where it stopped. |
 | Anything else | Copy the error text from the terminal and send it to Joel, or paste it into Claude Code. |
 
 ---
@@ -119,15 +157,9 @@ The project includes instructions and "skills" for **Claude Code**, so you can r
 - `npm run lint` runs ESLint and TypeScript.
 - The generated audio is committed in `public/audio/`, so rendering doesn't need Python.
 
-Regenerating audio (Python 3.11+):
-```bash
-py -m venv .venv
-.venv/Scripts/python -m pip install numpy piper-tts edge-tts
-# Piper voice model → .venv/piper-voices/ (see .claude/skills/remotion-generated-audio/SKILL.md)
-.venv/Scripts/python scripts/audio/vo.py scripts/audio/echogrid-voiceover.json
-.venv/Scripts/python scripts/audio/synth.py sfx
-.venv/Scripts/python scripts/audio/synth.py music --timing public/audio/vo/echogrid/timing.json
-```
+Audio tooling (Python 3.10+):
+- `npm run setup:audio` (`scripts/setup-audio.mjs`) checks Python, creates `.venv`, installs `requirements-audio.txt` (pinned) and downloads the Piper voice into `.venv/piper-voices/`. Downloads are resumable.
+- `npm run audio:vo`, `audio:sfx`, `audio:music` and `audio` run the scripts in `scripts/audio/` through `scripts/py.mjs`, which picks the venv interpreter on Windows, macOS and Linux.
 
 Agent docs: [AGENTS.md](AGENTS.md) (also loaded via `CLAUDE.md`), skills in `.claude/skills/`:
 - `video-content-extraction`
